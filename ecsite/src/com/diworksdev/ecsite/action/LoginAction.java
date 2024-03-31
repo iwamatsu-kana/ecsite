@@ -2,6 +2,7 @@ package com.diworksdev.ecsite.action;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
+
 import com.diworksdev.ecsite.dao.BuyItemDAO;
 import com.diworksdev.ecsite.dao.LoginDAO;
 import com.diworksdev.ecsite.dto.BuyItemDTO;
@@ -12,9 +13,7 @@ public class LoginAction extends ActionSupport implements SessionAware
 {
 	private String loginUserId;
 	private String loginPassword;
-	private String result;
 	private Map<String, Object> session;
-	public String execute() {
 	private LoginDAO loginDAO=new LoginDAO();
 	private LoginDTO loginDTO=new LoginDTO() ;
 	private BuyItemDAO buyItemDAO=new BuyItemDAO();
@@ -24,13 +23,15 @@ public class LoginAction extends ActionSupport implements SessionAware
 		String result=ERROR;
 		loginDTO=loginDAO.getLoginUserInfo(loginUserId,loginPassword);
 		session.put("loginUser",loginDTO);
+
 		if(((LoginDTO)session.get("loginUser")).getLoginFlg()){
-		result=SUCCESS;
-		BuyItemDTO buyItemDTO=buyItemDAO.getBuyItemInfo();
-		session.put("login_user_id",loginDTO.getLoginId());
-		session.put("id", buyItemDTO.getId());
-		session.put("buyItem_name",buyItemDTO.getItemName());
-		session.put("buyItem_price",buyItemDTO.getItemPrice());
+			result=SUCCESS;
+			BuyItemDTO buyItemDTO=buyItemDAO.getBuyItemInfo();
+
+			session.put("login_user_id",loginDTO.getLoginId());
+			session.put("id", buyItemDTO.getId());
+			session.put("buyItem_name",buyItemDTO.getItemName());
+			session.put("buyItem_price",buyItemDTO.getItemPrice());
 
 			return result;
 		}
