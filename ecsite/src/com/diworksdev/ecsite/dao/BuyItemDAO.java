@@ -21,7 +21,7 @@ public class BuyItemDAO {
 
 			if(resultSet.next()) {
 				buyItemDTO.setId(resultSet.getInt("id"));
-				buyItemDTO.setItemName(resultSet. getString ( "item_name"));
+				buyItemDTO.setItemName(resultSet.getString ("item_name"));
 				buyItemDTO.setItemPrice(resultSet.getString("item_price"));
 				}
 			} catch(Exception e) {

@@ -86,17 +86,17 @@
 			</tr>
 			<s:iterator value="myPageList">
 			<tr>
-				<td><s:property value="itemName" /></td>
-				<td><s:property value="totalPrice" /><span>円</span></td>
-				<td><s:property value="totalCount" /><span>個</span></td>
-				<td><s:property value="payment" /></td>
-				<td><s:property value="insert_date" /></td>
+				<td><s:property value="itemName"/></td>
+				<td><s:property value="totalPrice"/><span>円</span></td>
+				<td><s:property value="totalCount"/><span>個</span></td>
+				<td><s:property value="payment"/></td>
+				<td><s:property value="insert_date"/></td>
 			</tr>
 			</s:iterator>
 			</table>
 			<s:form action="MyPageAction">
 				<input type="hidden" name="deleteFlg" value="1">
-				<s:submit value="削除 "/>
+				<s:submit value="削除"/>
 			</s:form>
 		</s:elseif>
 		<s:if test="message ! = null">
