@@ -1,15 +1,16 @@
 package com.diworksdev.ecsite.action;
 
-import com.opensymphony.xwork2.ActionSupport;
-import org.apache.struts2.interceptor.SessionAware;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.diworksdev.ecsite.dao.MyPageDAO;
 import com.diworksdev.ecsite.dto.MyPageDTO;
+import com.opensymphony.xwork2.ActionSupport;
 
-public class MyPageAction extends ActionSupport implements
-SessionAware{
+public class MyPageAction extends ActionSupport implements SessionAware{
 		public Map<String, Object> session;
 		private MyPageDAO myPageDAO=new MyPageDAO();
 		private ArrayList<MyPageDTO> myPageList = new ArrayList<MyPageDTO>();
@@ -60,7 +61,7 @@ SessionAware{
 		public String getMessage() {
 		return this.message;
 		}
-		public void set Message(String message)
+		public void setMessage(String message)
 		{ this.message = message;
 
 		}
