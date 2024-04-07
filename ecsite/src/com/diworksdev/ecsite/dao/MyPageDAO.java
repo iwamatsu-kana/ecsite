@@ -11,8 +11,8 @@ import com.diworksdev.ecsite.util.DBConnector;
 
 public class MyPageDAO {
 
-			DBConnector dbConnector=new DBConnector();
-			Connection connection=dbConnector.getConnection();
+			private DBConnector dbConnector=new DBConnector();
+			private Connection connection=dbConnector.getConnection();
 
 			public ArrayList<MyPageDTO> getMyPageUserInfo
 			(String item_transaction_id, String user_master_id) throws SQLException
@@ -26,7 +26,7 @@ public class MyPageDAO {
 				preparedStatement.setString(2,user_master_id);
 				ResultSet resultSet = preparedStatement.executeQuery();
 
-				if(resultSet.next()){
+				while(resultSet.next()){
 				MyPageDTO dto = new MyPageDTO();
 				dto.setId(resultSet.getString("id"));
 				dto.setItemName(resultSet.getString("item_name"));
