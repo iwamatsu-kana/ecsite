@@ -1,8 +1,8 @@
 package com.diworksdev.ecsite.dto;
 public class BuyItemDTO {
-	private int id;
-	private String itemName;
-	private String itemPrice;
+	public int id;
+	public String itemName;
+	public String itemPrice;
 
 	public String getItemName() {
 		return itemName;
